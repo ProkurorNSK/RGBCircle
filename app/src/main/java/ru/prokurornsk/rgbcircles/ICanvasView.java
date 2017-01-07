@@ -2,5 +2,5 @@ package ru.prokurornsk.rgbcircles;
 
 
 interface ICanvasView {
-    void drawCircle(MainCircle circle);
+    void drawCircle(SimpleCircle circle);
 }

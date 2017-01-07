@@ -1,28 +1,11 @@
 package ru.prokurornsk.rgbcircles;
 
-class MainCircle {
+class MainCircle extends SimpleCircle{
     private static final int INIT_RADIUS = 50;
     private static final int MAIN_SPEED = 30;
-    private int x;
-    private int y;
-    private int radius;
-
-    int getX() {
-        return x;
-    }
-
-    int getY() {
-        return y;
-    }
-
-    int getRadius() {
-        return radius;
-    }
 
     MainCircle(int x, int y) {
-        this.x = x;
-        this.y = y;
-        this.radius = INIT_RADIUS;
+        super(x, y, INIT_RADIUS);
     }
 
     void moveMainCircleWhenTouchAt(int x1, int y1) {
