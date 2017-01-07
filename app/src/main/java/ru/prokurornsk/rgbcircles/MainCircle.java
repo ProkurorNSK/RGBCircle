@@ -1,11 +1,15 @@
 package ru.prokurornsk.rgbcircles;
 
+import android.graphics.Color;
+
 class MainCircle extends SimpleCircle{
     private static final int INIT_RADIUS = 50;
     private static final int MAIN_SPEED = 30;
+    private static final int OUR_COLOR = Color.BLUE;
 
     MainCircle(int x, int y) {
         super(x, y, INIT_RADIUS);
+        setColor(OUR_COLOR);
     }
 
     void moveMainCircleWhenTouchAt(int x1, int y1) {

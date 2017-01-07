@@ -1,14 +1,18 @@
 package ru.prokurornsk.rgbcircles;
 
+import android.graphics.Color;
+
 import java.util.Random;
 
 class EnemyCircle extends SimpleCircle {
 
     private static final int FROM_RADIUS = 10;
     private static final int TO_RADIUS = 110;
+    private static final int ENEMY_COLOR = Color.RED;
 
     private EnemyCircle(int x, int y, int radius) {
         super(x, y, radius);
+        setColor(ENEMY_COLOR);
     }
 
     static EnemyCircle getRandomCircle() {
