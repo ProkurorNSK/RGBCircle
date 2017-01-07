@@ -1,8 +1,12 @@
 package ru.prokurornsk.rgbcircles;
 
+import java.util.ArrayList;
+
 class GameManager {
+    private static final int MAX_CIRCLES = 10;
     private MainCircle mainCircle;
-    private CanvasView canvasView;
+    private ArrayList<EnemyCircle> enemyCircles;
+    private final CanvasView canvasView;
     private static int width;
     private static int height;
 
@@ -12,6 +16,16 @@ class GameManager {
         width = w;
         height = h;
         initMainCircle();
+        initEnemyCircles();
+    }
+
+    private void initEnemyCircles() {
+        enemyCircles = new ArrayList<>();
+        for (int i = 0; i < MAX_CIRCLES; i++) {
+            EnemyCircle circle;
+            circle = EnemyCircle.getRandomCircle();
+            enemyCircles.add(circle);
+        }
     }
 
     static int getWidth() {
@@ -28,6 +42,9 @@ class GameManager {
 
     void onDraw() {
         canvasView.drawCircle(mainCircle);
+        for (EnemyCircle circle: enemyCircles) {
+            canvasView.drawCircle(circle);
+        }
     }
 
     void onTouchEvent(int x, int y) {

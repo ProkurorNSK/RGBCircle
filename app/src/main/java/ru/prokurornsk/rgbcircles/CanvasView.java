@@ -15,7 +15,7 @@ public class CanvasView extends View implements ICanvasView{
     private static int height;
     private Paint paint;
     private Canvas canvas;
-    private GameManager gameManager;
+    private final GameManager gameManager;
 
     public CanvasView(Context context, AttributeSet attrs) {
         super(context, attrs);

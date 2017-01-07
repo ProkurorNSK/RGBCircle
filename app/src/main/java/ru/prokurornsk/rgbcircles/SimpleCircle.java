@@ -3,7 +3,7 @@ package ru.prokurornsk.rgbcircles;
 class SimpleCircle {
     int x;
     int y;
-    private int radius;
+    private final int radius;
 
     int getX() {
         return x;
