@@ -2,7 +2,7 @@ package ru.prokurornsk.rgbcircles;
 
 import android.graphics.Color;
 
-class MainCircle extends SimpleCircle{
+class MainCircle extends SimpleCircle {
     private static final int INIT_RADIUS = 50;
     private static final int MAIN_SPEED = 30;
     private static final int OUR_COLOR = Color.BLUE;
@@ -22,5 +22,9 @@ class MainCircle extends SimpleCircle{
 
     void initRadius() {
         radius = INIT_RADIUS;
+    }
+
+    void growRadius(EnemyCircle circle) {
+        radius = ((int) Math.sqrt((Math.pow(radius, 2) + Math.pow(circle.radius, 2))));
     }
 }

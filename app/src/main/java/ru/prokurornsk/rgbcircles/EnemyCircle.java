@@ -22,11 +22,11 @@ class EnemyCircle extends SimpleCircle {
 
     static EnemyCircle getRandomCircle() {
         Random random = new Random();
-        int x = random.nextInt(GameManager.getWidth());
-        int y = random.nextInt(GameManager.getHeight());
+        int radius = FROM_RADIUS + random.nextInt(TO_RADIUS - FROM_RADIUS);
+        int x = radius + random.nextInt(GameManager.getWidth() - radius * 2);
+        int y = radius + random.nextInt(GameManager.getHeight() - radius * 2);
         int dx = 1 + random.nextInt(RANDOM_SPEED);
         int dy = 1 + random.nextInt(RANDOM_SPEED);
-        int radius = FROM_RADIUS + random.nextInt(TO_RADIUS - FROM_RADIUS);
         return new EnemyCircle(x, y, radius, dx, dy);
     }
 
@@ -38,7 +38,7 @@ class EnemyCircle extends SimpleCircle {
         }
     }
 
-    private boolean isSmallerThen(SimpleCircle circle) {
+    boolean isSmallerThen(SimpleCircle circle) {
         return radius < circle.radius;
     }
 
@@ -49,10 +49,10 @@ class EnemyCircle extends SimpleCircle {
     }
 
     private void checkBounds() {
-        if (x > GameManager.getWidth() || x < 0) {
+        if (x + radius > GameManager.getWidth() || x < radius) {
             dx = -dx;
         }
-        if (y > GameManager.getHeight() || y < 0) {
+        if (y + radius > GameManager.getHeight() || y < radius) {
             dy = -dy;
         }
     }

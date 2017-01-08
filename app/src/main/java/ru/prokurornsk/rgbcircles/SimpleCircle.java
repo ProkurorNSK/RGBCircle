@@ -28,7 +28,7 @@ class SimpleCircle {
         return color;
     }
 
-    public void setColor(int color) {
+    void setColor(int color) {
         this.color = color;
     }
 
