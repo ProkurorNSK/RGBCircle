@@ -19,4 +19,8 @@ class MainCircle extends SimpleCircle{
         y += dy;
 
     }
+
+    void initRadius() {
+        radius = INIT_RADIUS;
+    }
 }

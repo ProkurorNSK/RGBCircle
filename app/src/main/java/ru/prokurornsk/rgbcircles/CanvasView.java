@@ -62,4 +62,9 @@ public class CanvasView extends View implements ICanvasView{
         invalidate();
         return true;
     }
+
+    @Override
+    public void redraw() {
+        invalidate();
+    }
 }

@@ -3,7 +3,7 @@ package ru.prokurornsk.rgbcircles;
 class SimpleCircle {
     int x;
     int y;
-    final int radius;
+    int radius;
     private int color;
 
     int getX() {
@@ -37,6 +37,6 @@ class SimpleCircle {
     }
 
     boolean isIntersect(SimpleCircle circle) {
-        return radius + circle.radius >= Math.sqrt(Math.pow(x - circle.x, 2) + Math.pow(y - circle.y, 2));
+        return (radius + circle.radius) >= Math.sqrt(Math.pow(x - circle.x, 2) + Math.pow(y - circle.y, 2));
     }
 }
