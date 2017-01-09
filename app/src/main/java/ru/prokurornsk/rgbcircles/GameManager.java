@@ -27,6 +27,11 @@ class GameManager {
         return height;
     }
 
+    static void setHeightAndWidth(int w, int h) {
+        width = w;
+        height = h;
+    }
+
     private void initEnemyCircles() {
         SimpleCircle mainCircleArea = mainCircle.getCircleArea();
         enemyCircles = new ArrayList<>();

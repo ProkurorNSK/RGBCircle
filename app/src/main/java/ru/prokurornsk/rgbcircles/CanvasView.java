@@ -29,7 +29,12 @@ public class CanvasView extends View implements ICanvasView{
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        gameManager = new GameManager(this, w, h);
+
+        if (gameManager == null) {
+            gameManager = new GameManager(this, w, h);
+        } else {
+            GameManager.setHeightAndWidth(w, h);
+        }
     }
 
     @Override
