@@ -3,28 +3,21 @@ package ru.prokurornsk.rgbcircles;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.Point;
 import android.util.AttributeSet;
-import android.view.Display;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Toast;
 
 public class CanvasView extends View implements ICanvasView{
-    private static int width;
-    private static int height;
     private Paint paint;
     private Canvas canvas;
-    private final GameManager gameManager;
+    private GameManager gameManager;
     private Toast toast;
 
     public CanvasView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        initWidthAndHeight(context);
         initPaint();
-        gameManager = new GameManager(this, width, height);
     }
 
     private void initPaint() {
@@ -33,16 +26,10 @@ public class CanvasView extends View implements ICanvasView{
         paint.setStyle(Paint.Style.FILL);
     }
 
-    private void initWidthAndHeight(Context context) {
-        WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        Display display = windowManager.getDefaultDisplay();
-        Point point = new Point();
-        display.getSize(point);
-        width = point.x;
-        height = point.y;
-
-        int width1 = this.getMeasuredWidth();
-        int height1 = this.getMeasuredHeight();
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        gameManager = new GameManager(this, w, h);
     }
 
     @Override
@@ -82,10 +69,5 @@ public class CanvasView extends View implements ICanvasView{
         toast = Toast.makeText(getContext(), text, Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();
-    }
-
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 }

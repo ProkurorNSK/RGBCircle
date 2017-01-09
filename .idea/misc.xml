@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="EntryPointsManager">
-    <entry_points version="2.0" />
+    <entry_points version="2.0">
+      <entry_point TYPE="method" FQNAME="ru.prokurornsk.rgbcircles.ICanvasView void redraw()" />
+      <entry_point TYPE="method" FQNAME="ru.prokurornsk.rgbcircles.ICanvasView void drawCircle(ru.prokurornsk.rgbcircles.SimpleCircle circle)" />
+      <entry_point TYPE="method" FQNAME="ru.prokurornsk.rgbcircles.ICanvasView void showMessage(java.lang.String text)" />
+    </entry_points>
   </component>
   <component name="NullableNotNullManager">
     <option name="myDefaultNullable" value="android.support.annotation.Nullable" />

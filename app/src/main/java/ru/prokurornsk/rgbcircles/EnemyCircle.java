@@ -6,7 +6,7 @@ import java.util.Random;
 
 class EnemyCircle extends SimpleCircle {
 
-    private static final int FOOD_COLOR = Color.rgb(0, 200, 0);
+    private static final int FOOD_COLOR = Color.GREEN;
     private static final int FROM_RADIUS = 10;
     private static final int TO_RADIUS = 110;
     private static final int ENEMY_COLOR = Color.RED;

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 class GameManager {
     private static final int MAX_CIRCLES = 10;
-    public static final int PADDING = 30;
     private MainCircle mainCircle;
     private ArrayList<EnemyCircle> enemyCircles;
     private final CanvasView canvasView;
@@ -20,6 +19,14 @@ class GameManager {
         initEnemyCircles();
     }
 
+    static int getWidth() {
+        return width;
+    }
+
+    static int getHeight() {
+        return height;
+    }
+
     private void initEnemyCircles() {
         SimpleCircle mainCircleArea = mainCircle.getCircleArea();
         enemyCircles = new ArrayList<>();
@@ -33,23 +40,14 @@ class GameManager {
         calculateAndSetCirclesColor();
     }
 
+    private void initMainCircle() {
+        mainCircle = new MainCircle(width / 2, height / 2);
+    }
+
     private void calculateAndSetCirclesColor() {
         for (EnemyCircle circle : enemyCircles) {
             circle.setEnemyOrFoodColorDependsOn(mainCircle);
         }
-    }
-
-    static int getWidth() {
-        return width - 2 * PADDING;
-    }
-
-    static int getHeight() {
-        return height;
-    }
-
-    private void initMainCircle() {
-//        mainCircle = new MainCircle(width / 2, height / 2);
-        mainCircle = new MainCircle(width / 2 - PADDING, height / 2 - PADDING);
     }
 
     void onDraw() {
