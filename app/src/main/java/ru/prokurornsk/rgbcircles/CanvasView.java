@@ -40,6 +40,9 @@ public class CanvasView extends View implements ICanvasView{
         display.getSize(point);
         width = point.x;
         height = point.y;
+
+        int width1 = this.getMeasuredWidth();
+        int height1 = this.getMeasuredHeight();
     }
 
     @Override
@@ -79,5 +82,10 @@ public class CanvasView extends View implements ICanvasView{
         toast = Toast.makeText(getContext(), text, Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 }
